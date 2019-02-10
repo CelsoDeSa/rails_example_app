@@ -57,6 +57,11 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
 
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails'
+gem 'therubyracer'
+# consegui instalar liv8 que é necessário para the ruby racer com o comando:
+# gem install libv8 -v 3.16.14.19 -- --with-system-v8
 
 # ActiveAdmin
 gem 'devise'
