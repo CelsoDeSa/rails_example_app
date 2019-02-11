@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -57,9 +57,9 @@ group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
 
-# gem 'less-rails-semantic_ui'
-# gem 'autoprefixer-rails'
-# gem 'therubyracer'
+gem 'less-rails-semantic_ui'
+gem 'autoprefixer-rails', '8.6.5'
+gem 'therubyracer'
 # I had to install Linux to make the above 3 gems work
 
 # ActiveAdmin
@@ -67,4 +67,4 @@ gem 'devise'
 gem 'activeadmin'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
