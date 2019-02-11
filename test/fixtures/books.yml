@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+  asin: MyString
+  video: MyString
+  price: 1
+  buy_option_amazon: MyString
+  description: MyText
+  published: false
+  post: one
+
+two:
+  title: MyString
+  slug: MyString
+  asin: MyString
+  video: MyString
+  price: 1
+  buy_option_amazon: MyString
+  description: MyText
+  published: false
+  post: two
