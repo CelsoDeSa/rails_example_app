@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple exemple application that will serve two objetives:
 
-Things you may want to cover:
+- Show how you can set up a Rails 5 app for amazon affiliate marketing
+- A portifolio
 
-* Ruby version
+It was coded on Ubuntu, and uses:
 
-* System dependencies
+- Semantic UI for Styling an fast prototyping
+- Active Admin for securing it
+- It works on a Heroku payed Dyno and uses its SSL as well
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Git clone it and have fun :)
