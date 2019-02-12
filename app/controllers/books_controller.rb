@@ -1,4 +1,5 @@
 class BooksController < InheritedResources::Base
+  before_action :authenticate_admin_user!, only: [:new, :update, :destroy]
 
   private
 

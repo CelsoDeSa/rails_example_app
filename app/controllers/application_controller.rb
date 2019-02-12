@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :redirect_subdomain, :check_user, :authenticate_admin_user!, only: [:new, :update, :destroy]
+    before_action :redirect_subdomain, :check_user
 
     def check_user
         @admin = current_admin_user
