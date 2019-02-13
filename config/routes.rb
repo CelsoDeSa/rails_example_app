@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :books
+  
+  resources :posts do 
+    resources :books
+  end
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

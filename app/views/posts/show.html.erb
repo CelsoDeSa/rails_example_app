@@ -1,24 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @post.title %>
-</p>
+</h1>
+
 
 <p>
-  <strong>Slug:</strong>
-  <%= @post.slug %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
   <%= @post.intro %>
 </p>
 
-<p>
-  <strong>Published:</strong>
-  <%= @post.published %>
-</p>
+<% if @admin %>
+  <p>
+    <strong>Slug:</strong>
+    <%= @post.slug %>
+  </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <p>
+    <strong>Status:</strong>
+    <%= @post.published ? "Publicado" : "Não Publicado" %>
+  </p>
+
+  <%= link_to 'Edit Intro', edit_post_path(@post), class:"ui button" %> 
+  <%= link_to 'Back To Posts', posts_path, class:"ui button" %>
+  <%= link_to 'Add New Book', new_post_book_path(@post), class:"ui button" %>
+<% end %>
+
+
+<% @books = @post.books %>
+<% @books.each do |book| %>      
+  <div class="ui raised very padded text container segment">
+    <div class="ui items">
+      <div class="item">
+
+        <div class="image" style="width: 180px">
+          <%= book.image.html_safe %>
+        </div>
+        
+        <div class="content">
+          <a class="header"><%= book.title %></a>
+
+          <div class="meta">
+            <%= book.slug %>
+            <%= book.isbn %>
+            <%= book.video %>
+            <%= book.price %>
+            <%= link_to book.buy_option_amazon, class:"ui yellow button" do %>
+              <i class="heart icon"></i>Compre na Amazon
+            <% end %>
+            <p></p>
+            <p>*Frete grátis a partir de R$99 em compras</p>
+            <p>*Pague com Boleto ou</p>
+            <p>*10x sem juros no Cartão</p>
+          </div>
+
+          <div class="description">
+            <p><%= simple_format book.description %></p>
+          </div>
+          
+          <div class="extra">
+            <% if @admin %>
+              <p>
+                Publicado: <%= book.published ? "Sim" : "Não" %>
+              </p>
+              <%= link_to 'Show', post_book_path(@post, book) %>
+              <%= link_to 'Edit', edit_post_book_path(@post, book) %>
+              <%= link_to 'Destroy', post_book_path(@post, book), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+<% end %>

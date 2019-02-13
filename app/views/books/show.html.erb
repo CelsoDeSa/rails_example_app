@@ -11,13 +11,18 @@
 </p>
 
 <p>
-  <strong>Asin:</strong>
-  <%= @book.asin %>
+  <strong>ISBN-13:</strong>
+  <%= @book.isbn %>
 </p>
 
 <p>
   <strong>Video:</strong>
   <%= @book.video %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @book.image %>
 </p>
 
 <p>
@@ -45,5 +50,5 @@
   <%= @book.post %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Edit', edit_post_book_path(@book) %> |
+<%= link_to 'Back', post_books_path %>
