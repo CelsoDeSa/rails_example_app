@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_13_000632) do
-=======
-ActiveRecord::Schema.define(version: 2019_02_11_144945) do
->>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +44,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_144945) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "slug"
-<<<<<<< HEAD
     t.string "isbn"
-=======
-    t.string "asin"
->>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
     t.string "video"
     t.integer "price"
     t.string "buy_option_amazon"
@@ -61,10 +53,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_144945) do
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string "image"
-=======
->>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
     t.index ["post_id"], name: "index_books_on_post_id"
   end
 
