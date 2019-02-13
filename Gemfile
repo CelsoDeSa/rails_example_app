@@ -42,6 +42,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'therubyracer'
 end
 
 group :test do
@@ -59,8 +60,6 @@ end
 
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails', '8.6.5'
-gem 'therubyracer'
-# I had to install Linux to make the above 3 gems work
 
 # ActiveAdmin
 gem 'devise'
