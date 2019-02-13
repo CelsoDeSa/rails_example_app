@@ -11,8 +11,13 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>ISBN-13:</strong>
   <%= @book.isbn %>
+=======
+  <strong>Asin:</strong>
+  <%= @book.asin %>
+>>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
 </p>
 
 <p>
@@ -21,11 +26,14 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Image:</strong>
   <%= @book.image %>
 </p>
 
 <p>
+=======
+>>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
   <strong>Price:</strong>
   <%= @book.price %>
 </p>
@@ -50,5 +58,10 @@
   <%= @book.post %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Edit', edit_post_book_path(@book) %> |
 <%= link_to 'Back', post_books_path %>
+=======
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
+>>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
