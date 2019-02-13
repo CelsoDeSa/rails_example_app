@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <%= form_with(model: [post, book], local: true, class: "ui form") do |form| %>
-=======
-<%= form_with(model: book, local: true) do |form| %>
->>>>>>> a0fb20c7e4bcbcd39e7747e1b4a45cd39c39c446
   <% if book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
