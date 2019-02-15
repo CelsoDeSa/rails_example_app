@@ -1,9 +1,36 @@
 class BooksController < InheritedResources::Base
   before_action :authenticate_admin_user!, only: [:new, :update, :destroy]
-  before_action :find_post_by_id
+  before_action :find_post_by_slug
 
-  def find_post_by_id
-    @post = Post.find(params[:post_id])
+  def find_post_by_slug
+    @post = Post.find_by slug: params[:post_slug]
+  end
+
+  def create
+    @book = Book.new(book_params)
+
+    if @book.save
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
+  end
+
+  def update
+    @book = Book.find(params[:id])
+
+    if @book.update(book_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+  
+    redirect_to post_path(@post)
   end
 
   private

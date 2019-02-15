@@ -6,7 +6,7 @@
 
 
 <p>
-  <%= @post.intro %>
+  <%= simple_format @post.intro %>
 </p>
 
 <% if @admin %>
@@ -26,7 +26,7 @@
 <% end %>
 
 
-<% @books = @post.books %>
+<% @books = @post.books.reverse %>
 <% @books.each do |book| %>      
   <div class="ui raised very padded text container segment">
     <div class="ui items">
@@ -44,7 +44,7 @@
             <p>ISBN: <%= book.isbn %></p>
             <%= book.video %>
             <%= book.price %>
-            <%= link_to book.buy_option_amazon, class:"ui yellow button" do %>
+            <%= link_to book.buy_option_amazon, class:"ui yellow button", rel: "nofollow" do %>
               <i class="heart icon"></i>Compre na Amazon
             <% end %>
             <p></p>

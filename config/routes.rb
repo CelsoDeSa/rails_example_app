@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :posts do 
+  # resources :posts, param: :slug
+
+  resources :posts, param: :slug do 
     resources :books
   end
   
