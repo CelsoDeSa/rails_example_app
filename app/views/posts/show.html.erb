@@ -2,8 +2,9 @@
 
 <h1 class="ui header">
   <%= @post.title %>
-  <%= @params %>
 </h1>
+
+<p><%= @params %></p>
 
 <% if @admin %>
   <div class="ui <%= @post.published ? 'teal' : 'red' %> tag label" >
