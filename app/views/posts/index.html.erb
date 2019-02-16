@@ -1,36 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Slug</th>
-      <th>Intro</th>
-      <th>Published</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.slug %></td>
-        <td><%= post.intro %></td>
-        <td><%= post.published %></td>
-        <% if @admin %>
-          <td><%= link_to 'Show', post_path(post.slug) %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <% if @admin %>
-  <%= link_to 'New Post', new_post_path, class:"ui button" %>
+  <%= link_to 'Novo Post', new_post_path, class:"ui positive button" %>
 <% end %>
+
+<% @posts.each do |post| %>
+
+  <% if post.published || !post.published && @admin  %>
+
+    <h1><%= link_to post.title, post_path(post.slug), class:"ui header" %></h1>
+    
+    <% if @admin %>
+        <div class="ui <%= post.published ? 'teal' : 'red' %> tag label" >
+          <strong>Status:</strong>
+          <%= post.published ? "Publicado" : "Não Publicado" %>
+        </div>
+        <%= link_to 'Editar', edit_post_path(post), class:"ui tiny button"  %>
+        <%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"ui negative tiny button"  %>
+    <% end %>
+
+    <div class="intro"><%= simple_format post.intro %></div>
+
+    <br>
+
+    <%= link_to post_path(post.slug), class:"ui primary button" do %>
+      Continue lendo <i class="arrow right icon"></i>
+    <% end %>
+    
+  <% end%>
+<% end %>
+

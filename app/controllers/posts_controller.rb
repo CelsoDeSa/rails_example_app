@@ -12,4 +12,3 @@ class PostsController < InheritedResources::Base
       params.require(:post).permit(:title, :slug, :intro, :published)
     end
 end
-

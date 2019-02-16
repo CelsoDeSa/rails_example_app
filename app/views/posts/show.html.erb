@@ -1,30 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
+<h1 class="ui header">
   <%= @post.title %>
+  <%= @params %>
 </h1>
 
-
-<p>
-  <%= simple_format @post.intro %>
-</p>
-
 <% if @admin %>
-  <p>
-    <strong>Slug:</strong>
-    <%= @post.slug %>
-  </p>
-
-  <p>
+  <div class="ui <%= @post.published ? 'teal' : 'red' %> tag label" >
     <strong>Status:</strong>
     <%= @post.published ? "Publicado" : "Não Publicado" %>
-  </p>
-
-  <%= link_to 'Edit Intro', edit_post_path(@post), class:"ui button" %> 
-  <%= link_to 'Back To Posts', posts_path, class:"ui button" %>
-  <%= link_to 'Add New Book', new_post_book_path(@post), class:"ui button" %>
+  </div>
+  <%= link_to 'Editar Intro', edit_post_path(@post), class:"ui primary tiny button" %> 
+  <%= link_to 'Adicionar Livro', new_post_book_path(@post), class:"ui positive tiny button" %>
 <% end %>
 
+<div class="intro">
+  <%= simple_format @post.intro %>
+</div>
 
 <% @books = @post.books.reverse %>
 <% @books.each do |book| %>      
@@ -37,14 +29,12 @@
         </div>
         
         <div class="content">
-          <a class="header"><%= book.title %></a>
+          <h2 id="<%= book.slug %>" class="ui header" style="color: rgb(0, 82, 137);"><%= book.title %></h2>
 
           <div class="meta">
-            <%= book.slug %>
-            <p>ISBN: <%= book.isbn %></p>
             <%= book.video %>
             <%= book.price %>
-            <%= link_to book.buy_option_amazon, class:"ui yellow button", rel: "nofollow" do %>
+            <%= link_to book.buy_option_amazon, class:"fluid large ui yellow button", rel: "nofollow" do %>
               <i class="heart icon"></i>Compre na Amazon
             <% end %>
             <p></p>
@@ -62,9 +52,9 @@
               <p>
                 Publicado: <%= book.published ? "Sim" : "Não" %>
               </p>
-              <%= link_to 'Show', post_book_path(@post, book) %>
-              <%= link_to 'Edit', edit_post_book_path(@post, book) %>
-              <%= link_to 'Destroy', post_book_path(@post, book), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Ver', post_book_path(@post, book), class:"tiny ui basic button" %>
+              <%= link_to 'Editar', edit_post_book_path(@post, book), class:"tiny ui primary basic button" %>
+              <%= link_to 'Deletar', post_book_path(@post, book), method: :delete, data: { confirm: 'Are you sure?' }, class:"tiny ui negative basic button" %>
             <% end %>
           </div>
         </div>
