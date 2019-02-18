@@ -62,10 +62,10 @@
   <div class="actions">
     <%= form.submit class: "ui positive button", value: "Salvar" %>
 
-    <%= link_to 'Voltar', post_books_path, class: "ui button" %>
+    <%= link_to 'Voltar', :back, class: "ui button" %>
 
     <% if book.id %>
-      <%= link_to 'Show', post_book_path, class: "ui button" %>
+      <%= link_to 'Show', slug_id_path, class: "ui button" %>
     <% end %>
   </div>
 <% end %>

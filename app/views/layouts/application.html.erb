@@ -15,10 +15,12 @@
 
     <div class="ui top fixed menu">
       <div class="header item">
-        <%= image_tag "Direito Certo Logo.png", class:"ui image", size:"45x45" %>
-        <p style="font-family: Libre Baskerville; color: rgb(0, 82, 137); margin-left: 5px; font-size: 1.5rem"> 
-          Direito Certo
-        </p>
+        <%= link_to root_path do %>
+          <%= image_tag "Direito Certo Logo.png", class:"ui image", style:"display: inline;", size:"45x45" %>
+          <p style="font-family: Libre Baskerville; color: rgb(0, 82, 137); margin-left: 5px; font-size: 1.5rem; display: inline"> 
+            Direito Certo
+          </p>
+        <% end %>
       </div>
       <div class="right menu">
         <a class="item">

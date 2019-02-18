@@ -6,6 +6,10 @@ class PostsController < InheritedResources::Base
     @post = Post.find_by slug: params[:slug]
   end
 
+  def show
+    @books = @post.books.order(created_at: :asc)
+  end
+
   private
 
     def post_params

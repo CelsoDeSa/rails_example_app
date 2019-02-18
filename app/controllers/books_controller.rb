@@ -3,14 +3,14 @@ class BooksController < InheritedResources::Base
   before_action :find_post_by_slug
 
   def find_post_by_slug
-    @post = Post.find_by slug: params[:post_slug]
+    @post = Post.find_by slug: params[:slug]
   end
 
   def create
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to post_path(@post)
+      redirect_to post_slug_path(params[:post_slug])
     else
       render :new
     end
@@ -20,7 +20,7 @@ class BooksController < InheritedResources::Base
     @book = Book.find(params[:id])
 
     if @book.update(book_params)
-      redirect_to post_path(@post)
+      redirect_to post_slug_path(params[:post_slug])
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class BooksController < InheritedResources::Base
     @book = Book.find(params[:id])
     @book.destroy
   
-    redirect_to post_path(@post)
+    redirect_to post_slug_path(params[:post_slug])
   end
 
   private

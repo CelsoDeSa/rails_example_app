@@ -1,0 +1,6 @@
+<% books.each do |book| %>      
+  
+    <% @book = book %>
+    <%= render 'book', post: @post, book: @book %>
+
+<% end %>

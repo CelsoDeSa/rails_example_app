@@ -4,29 +4,36 @@
   <%= link_to 'Novo Post', new_post_path, class:"ui positive button" %>
 <% end %>
 
-<% @posts.each do |post| %>
+<div class="ui divided items">
+  <% @posts.each do |post| %>
 
-  <% if post.published || !post.published && @admin  %>
+    <div class="item">
 
-    <h1><%= link_to post.title, post_path(post.slug), class:"ui header" %></h1>
-    
-    <% if @admin %>
-        <div class="ui <%= post.published ? 'teal' : 'red' %> tag label" >
-          <strong>Status:</strong>
-          <%= post.published ? "Publicado" : "Não Publicado" %>
-        </div>
-        <%= link_to 'Editar', edit_post_path(post), class:"ui tiny button"  %>
-        <%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"ui negative tiny button"  %>
-    <% end %>
+      <div class="content">
 
-    <div class="intro"><%= simple_format post.intro %></div>
+        <% if post.published || !post.published && @admin  %>
 
-    <br>
+          <h1><%= link_to post.title, post.slug, class:"ui header" %></h1>
 
-    <%= link_to post_path(post.slug), class:"ui primary button" do %>
-      Continue lendo <i class="arrow right icon"></i>
-    <% end %>
-    
-  <% end%>
-<% end %>
+          <% if @admin %>
+              <div class="ui <%= post.published ? 'teal' : 'red' %> tag label" >
+                <strong>Status:</strong>
+                <%= post.published ? "Publicado" : "Não Publicado" %>
+              </div>
+              <%= link_to 'Editar', edit_post_path(post), class:"ui tiny button"  %>
+              <%= link_to 'Deletar', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"ui negative tiny button"  %>
+          <% end %>
 
+          <div class="description"><%= simple_format post.intro %></div>
+
+          <br>
+
+            <%= link_to post.slug, class:"ui right floated primary button" do %>
+              Continue lendo <i class="arrow right icon"></i>
+            <% end %>
+          
+        <% end%>
+      </div>
+    </div>
+  <% end %>
+</div>

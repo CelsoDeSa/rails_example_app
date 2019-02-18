@@ -6,44 +6,4 @@
 <% end %>
 
 <% @books = @post.books %>
-<% @books.each do |book| %>      
-  <div class="ui raised very padded text container segment">
-    <div class="ui items">
-      <div class="item">
-
-        <div class="image">
-          <%= book.image.html_safe %>
-        </div>
-        
-        <div class="content">
-          <a class="header"><%= book.title %></a>
-
-          <div class="meta">
-            <span>Description</span>
-            <%= book.slug %>  
-            <%= book.isbn %>  
-            <%= book.video %> 
-            <%= book.price %> 
-            <%= book.buy_option_amazon %> 
-          </div>
-
-          <div class="description">
-            <p><%= book.description %></p>
-          </div>
-          
-          <div class="extra">
-            <% if @admin %>
-              <p>
-                Publicado: <%= book.published ? "Sim" : "Não" %>
-              </p>
-              <%= link_to 'Show', post_book_path(@post, book) %>
-              <%= link_to 'Edit', edit_post_book_path(@post, book) %>
-              <%= link_to 'Destroy', post_book_path(@post, book), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'books', books: @books %>
