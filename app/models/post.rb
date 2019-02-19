@@ -2,6 +2,7 @@ class Post < ApplicationRecord
     has_many :books, dependent: :destroy
     validates :title, presence: true
     before_save :set_slug
+    validates :slug, uniqueness: true
     # accepts_nested_attributes_for :books, allow_destroy: true
 
     def to_param

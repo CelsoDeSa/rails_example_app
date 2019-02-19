@@ -4,7 +4,10 @@
   <%= @post.title %>
 </h1>
 
-<p><%= @params %></p>
+<p>
+  <strong>Atualizado em: </strong>
+  <%= @books.first.updated_at.strftime('%d/%m/%Y')%>
+</p>
 
 <% if @admin %>
   <div class="ui <%= @post.published ? 'teal' : 'red' %> tag label" >

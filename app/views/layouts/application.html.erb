@@ -23,9 +23,6 @@
         <% end %>
       </div>
       <div class="right menu">
-        <a class="item">
-          Sobre
-        </a>
       </div>
     </div>
 
@@ -37,48 +34,34 @@
     <br>
 
     <div class="ui inverted vertical footer segment">
+      <br>
       <div class="ui center aligned container">
         <div class="ui stackable inverted divided grid">
-          <div class="three wide column">
-            <h4 class="ui inverted header">Group 1</h4>
+          <div class="four wide column">
+            <h4 class="ui inverted header">Livros de Direito</h4>
             <div class="ui inverted link list">
-              <a href="#" class="item">Link One</a>
-              <a href="#" class="item">Link Two</a>
-              <a href="#" class="item">Link Three</a>
-              <a href="#" class="item">Link Four</a>
+              <a href="#" class="item">Administrativo</a>
+              <a href="#" class="item">Constitucional</a>
+              <a href="#" class="item">Tributário</a>
+              <a href="#" class="item">Penal</a>
             </div>
           </div>
-          <div class="three wide column">
-            <h4 class="ui inverted header">Group 2</h4>
+          <div class="four wide column">
+            <h4 class="ui inverted header">Direito Certo</h4>
             <div class="ui inverted link list">
-              <a href="#" class="item">Link One</a>
-              <a href="#" class="item">Link Two</a>
-              <a href="#" class="item">Link Three</a>
-              <a href="#" class="item">Link Four</a>
+              <%= link_to "Sobre", sobre_path, class:"item" %>
+              <%= link_to "Contato", contato_path, class:"item" %>
+              <%= link_to "Termos de Uso", termos_de_uso_path, class:"item" %>
+              <%= link_to "Política de Privacidade", politica_de_privacidade_path, class:"item" %>
             </div>
           </div>
-          <div class="three wide column">
-            <h4 class="ui inverted header">Group 3</h4>
-            <div class="ui inverted link list">
-              <a href="#" class="item">Link One</a>
-              <a href="#" class="item">Link Two</a>
-              <a href="#" class="item">Link Three</a>
-              <a href="#" class="item">Link Four</a>
-            </div>
-          </div>
-          <div class="seven wide column">
-            <h4 class="ui inverted header">Footer Header</h4>
-            <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          <div class="eight wide column">
+            <h4 class="ui inverted header">Aviso Legal</h4>
+            <%= image_tag "Direito Certo Logo.png", class:"ui mini circular image", style:"display: inline" %>
+            <p style="display: inline"><strong style="font-family: Libre Baskerville; ">Direito Certo</strong> é um participante do programa associados da amazon.com.br</p>
           </div>
         </div>
         <div class="ui inverted section divider"></div>
-        <%= image_tag "Direito Certo Logo.png", class:"ui centered mini image" %>
-        <div class="ui horizontal inverted small divided link list">
-          <a class="item" href="#">Site Map</a>
-          <a class="item" href="#">Contact Us</a>
-          <a class="item" href="#">Terms and Conditions</a>
-          <a class="item" href="#">Privacy Policy</a>
-        </div>
       </div>
     </div>
 

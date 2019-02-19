@@ -22,6 +22,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :rating %>
+    <%= form.text_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
     <%= form.label :isbn, "ISBN-13" %> 
     <%= form.text_field :isbn %>
   </div>
@@ -65,7 +75,7 @@
     <%= link_to 'Voltar', :back, class: "ui button" %>
 
     <% if book.id %>
-      <%= link_to 'Show', slug_id_path, class: "ui button" %>
+      <%= link_to 'Show', slug_book_path, class: "ui button" %>
     <% end %>
   </div>
 <% end %>

@@ -7,7 +7,7 @@ class PostsController < InheritedResources::Base
   end
 
   def show
-    @books = @post.books.order(created_at: :asc)
+    @books = @post.books.order(:updated_at).reverse
   end
 
   private

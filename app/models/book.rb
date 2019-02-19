@@ -1,7 +1,12 @@
 class Book < ApplicationRecord
   belongs_to :post
-  validates :title, :isbn, :image, :buy_option_amazon, :post_id, presence: true
+  validates :title, :rating, :author, :isbn, :image, :buy_option_amazon, :post_id, presence: true
   before_save :modify_image, :set_slug
+  validates :slug, uniqueness: true
+
+  def to_param
+    slug
+  end
 
   protected
  
@@ -13,6 +18,6 @@ class Book < ApplicationRecord
   def set_slug
     self.slug = self.title
     self.slug.downcase!.gsub!(/\d+\s|\s\d+|\s\W.+/, "").gsub!(" ", "-")
-    self.slug += "-isbn-#{self.isbn}"
+    self.slug += "-" + I18n.transliterate(self.author).downcase.gsub(" ", "-")
   end
 end

@@ -1,8 +1,9 @@
 class BooksController < InheritedResources::Base
   before_action :authenticate_admin_user!, only: [:new, :update, :destroy]
-  before_action :find_post_by_slug
+  before_action :find_by_slug
 
-  def find_post_by_slug
+  def find_by_slug
+    @book = Book.find_by slug: params[:book_slug]
     @post = Post.find_by slug: params[:slug]
   end
 
@@ -17,7 +18,7 @@ class BooksController < InheritedResources::Base
   end
 
   def update
-    @book = Book.find(params[:id])
+    @book = Book.find_by slug: params[:book_slug]
 
     if @book.update(book_params)
       redirect_to post_slug_path(params[:post_slug])
@@ -27,7 +28,7 @@ class BooksController < InheritedResources::Base
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    @book = Book.find_by slug: params[:book_slug]
     @book.destroy
   
     redirect_to post_slug_path(params[:post_slug])
@@ -36,7 +37,7 @@ class BooksController < InheritedResources::Base
   private
 
     def book_params
-      params.require(:book).permit(:title, :slug, :isbn, :video, :image, :price, :buy_option_amazon, :description, :published, :post_id)
+      params.require(:book).permit(:title, :slug, :rating, :author, :isbn, :video, :image, :price, :buy_option_amazon, :description, :published, :post_id)
     end
 end
 

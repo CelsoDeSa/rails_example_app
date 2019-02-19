@@ -1,40 +1,53 @@
 <div class="ui raised very padded text container segment">
     <div class="ui items">
+
+        <h2 id="<%= book.slug %>" class="ui header">
+            <%= link_to book.title, slug_book_path(post, book_slug: book.slug), style:"color: rgb(0, 82, 137);" %>
+        </h2>
+
+        <div class="ui divider"></div>
+
       <div class="item">
 
-        <div class="image" style="width: 180px">
-            <%= book.image.html_safe %>
-        </div>
-
         <div class="content">
-            <h2 id="<%= book.slug %>" class="ui header">
-                <%= link_to book.title, slug_id_path(post, book), style:"color: rgb(0, 82, 137);" %>
-            </h2>
 
+            
+            <div class="ui left floated spaced image">
+                <%= book.image.html_safe %>
+                <%= link_to book.buy_option_amazon, class:"small fluid ui yellow button", rel: "nofollow" do %>
+                    <i class="heart icon"></i>Compre na Amazon
+                <% end %>
+            </div>
+        
             <div class="meta">
-            <%= book.video %>
-            <%= book.price %>
-            <%= link_to book.buy_option_amazon, class:"fluid large ui yellow button", rel: "nofollow" do %>
-                <i class="heart icon"></i>Compre na Amazon
-            <% end %>
-            <p></p>
-            <p>*Frete grátis a partir de R$99 em compras</p>
-            <p>*Pague com Boleto ou</p>
-            <p>*10x sem juros no Cartão</p>
+                <p>
+                    <% if book.rating %>
+                        <% book.rating.times do %>
+                            <i class="star yellow large icon"></i>
+                        <% end %>
+                        <% (5 - book.rating).times do %>
+                            <i class="star outline yellow large icon"></i>
+                        <% end %>
+                    <% end %>
+                </p>
+
+                <p><strong><%= book.author %></strong></p>
+                <p><strong>ISBN:</strong> <%= book.isbn %></p>
+                <p><em>*10x sem juros no cartão / Frete grátis a partir de R$99</em></p>
             </div>
 
             <div class="description">
-            <p><%= simple_format book.description %></p>
+                <p><%= simple_format book.description %></p>
             </div>
             
             <div class="extra">
-            <% if @admin %>
-                <p>
-                Publicado: <%= book.published ? "Sim" : "Não" %>
-                </p>
-                <%= link_to 'Editar', edit_post_book_path(post, book), class:"tiny ui primary basic button" %>
-                <%= link_to 'Deletar', post_book_path(post, book), method: :delete, data: { confirm: 'Are you sure?' }, class:"tiny ui negative basic button" %>
-            <% end %>
+                <% if @admin %>
+                    <p>
+                    Publicado: <%= book.published ? "Sim" : "Não" %>
+                    </p>
+                    <%= link_to 'Editar', edit_post_book_path(post, book_slug: book.slug), class:"tiny ui primary basic button" %>
+                    <%= link_to 'Deletar', post_book_path(post, book_slug: book.slug), method: :delete, data: { confirm: 'Are you sure?' }, class:"tiny ui negative basic button" %>
+                <% end %>
             </div>
         </div>
 
