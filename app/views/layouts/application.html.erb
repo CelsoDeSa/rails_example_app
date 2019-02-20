@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      <%= @post? @post.title : "Direito Certo" %>
+      <%= @title.call %>
     </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
