@@ -17,7 +17,7 @@ class Book < ApplicationRecord
 
   def set_slug
     self.slug = self.title
-    self.slug.downcase!.gsub!(/\d+\s|\s\d+|\s\W.+/, "").gsub!(" ", "-")
+    I18n.transliterate(self.slug).downcase!.gsub!(/\d+\s|\s\d+|\s\W.+/, "").gsub!(" ", "-")
     self.slug += "-" + I18n.transliterate(self.author).downcase.gsub(" ", "-")
   end
 end
