@@ -6,7 +6,7 @@
 
 <p>
   <strong>Atualizado em: </strong>
-  <%= @books.first.updated_at.strftime('%d/%m/%Y')%>
+  <%= @books.empty? ? "Add a book first" : @books.first.updated_at.strftime('%d/%m/%Y') %>
 </p>
 
 <% if @admin %>
