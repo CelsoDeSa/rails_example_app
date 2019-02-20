@@ -12,8 +12,10 @@ class Post < ApplicationRecord
     protected
 
     def set_slug
-        #Before saving get the title, save to a slug and modify it properly for SEO
-        self.slug = self.title
-        self.slug.downcase!.gsub!(/\d+\s|\s\d+|\s\W\w+\W/, "").gsub!(" ", "-")
+        if self.slug.empty?
+            #Before saving get the title, save to a slug and modify it properly for SEO
+            self.slug = I18n.transliterate(self.title)
+            self.slug.downcase!.gsub!(/\d+\s|\s\d+|\s\W\w+\W/, "").gsub!(" ", "-")
+        end
     end
 end
