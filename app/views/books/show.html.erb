@@ -1,3 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+    <%= link_to "/#{@post.slug}" do %>
+        <i class="arrow left icon"></i> Ver Todos os <%= @post.title  %>
+    <% end %>
+</p>
+
 <%= render 'book', post: @post, book: @book %>
