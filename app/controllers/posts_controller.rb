@@ -1,5 +1,5 @@
 class PostsController < InheritedResources::Base
-  before_action :authenticate_admin_user!, only: [:new, :update, :destroy]
+  before_action :authenticate_admin_user!, only: [:new, :edit, :update, :destroy]
   before_action :find_post_by_slug
 
   def find_post_by_slug
